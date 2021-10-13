@@ -9,7 +9,7 @@ fernet = Fernet(key)
 mydb= mysql.connector.connect(
     host= "localhost",
     user= "root",
-    passwd= "**************",
+    passwd= "Anurag11082001@*",
     database= "testdb"
 )
 
@@ -22,205 +22,202 @@ window=Tk()
 
 
 window.title('MyPasswordManager')
-window.geometry("300x200+10+10")
+window.geometry("500x400+10+10")
 window.eval('tk::PlaceWindow . center')
 
 Label(window, text='Choose an option \n1. Add an Account   2. Retrieve the account\n').grid(row=0)
 
-a1 = Entry(window)
-a1.grid(row=3, column=0)
 
 
 def MyButtonClicked(arg=None):
-    result=a1.get()
-    print(result)
-    ansr= int(result)
-    print(type(ansr))
-    if(ansr==1):
-        window=Tk()
-        window.title('MyPasswordManager')
-        window.geometry("300x200+10+10")
-        window.eval('tk::PlaceWindow . center')
-        usname=Label(window, text='Username').grid(row=1)
-        e1 = Entry(window)
-        e1.grid(row=2, column=0)
+    window=Tk()
+    window.title('MyPasswordManager')
+    window.geometry("500x400+10+10")
+    window.eval('tk::PlaceWindow . center')
+    usname=Label(window, text='Username').grid(row=1)
+    e1 = Entry(window)
+    e1.grid(row=2, column=0)
         
 
-        rootpwd=Label(window, text='Password').grid(row=3)
+    rootpwd=Label(window, text='Password').grid(row=3)
             
-        e2= Entry(window ,show="*",width=20)
+    e2= Entry(window ,show="*",width=20)
 
-        e2.grid(row=4, column=0)
+    e2.grid(row=4, column=0)
         
 
           
-        def Myexecute(arg=None):
-            username= e1.get()
-            rootpassword=e2.get()
-            encMessage = fernet.encrypt(rootpassword.encode())
-            print(username)
+    def Myexecute(arg=None):
+        username= e1.get()
+        rootpassword=e2.get()
+        encMessage = fernet.encrypt(rootpassword.encode())
+        print(username)
             
-            mycursor.execute("CREATE DATABASE %s"% username)
-            mycursor.execute("USE %s"% username)
-            mycursor.execute("CREATE TABLE passwords (root VARCHAR(50), account VARCHAR(50), passwords VARCHAR(50));")
-            lbl=Label(window , text="Database created successfully", fg='red', font=("Helvetica", 10)).grid(row=5, column=0)
+        mycursor.execute("CREATE DATABASE %s"% username)
+        mycursor.execute("USE %s"% username)
+        mycursor.execute("CREATE TABLE passwords (root VARCHAR(50), account VARCHAR(50), passwords VARCHAR(50));")
+        lbl=Label(window , text="Database created successfully", fg='red', font=("Helvetica", 10)).grid(row=5, column=0)
            
-            lb2= Label(window, text="\nEnter any account to create", fg='green').grid(row=6)
+        lb2= Label(window, text="\nEnter any account to create", fg='green').grid(row=6)
             
-            c2 = Entry(window)
-            c2.grid(row=7, column=0)
+        c2 = Entry(window)
+        c2.grid(row=7, column=0)
 
         
-            lb3= Label(window, text="Password of the account", fg='red').grid(row=8)
+        lb3= Label(window, text="Password of the account", fg='red').grid(row=8)
            
-            c3= Entry(window ,show="*",width=20)
+        c3= Entry(window ,show="*",width=20)
             
-            c3.grid(row=9, column=0)
+        c3.grid(row=9, column=0)
 
         
-            def Insert(arg=None):
-                accname=c2.get()
-                accpwd=c3.get()
-                encMessage = fernet.encrypt(accpwd.encode())
-                mycursor.execute("INSERT INTO passwords (root,account,passwords) VALUES (%s,%s,%s)",(rootpassword,accname,accpwd))
-                mydb.commit()
-                lb2=Label(window , text="\n\n\nAdded successfully", fg='red', font=("Helvetica", 10)).grid(row=10, column=0)
+        def Insert(arg=None):
+            accname=c2.get()
+            accpwd=c3.get()
+            encMessage = fernet.encrypt(accpwd.encode())
+            mycursor.execute("INSERT INTO passwords (root,account,passwords) VALUES (%s,%s,%s)",(rootpassword,accname,accpwd))
+            mydb.commit()
+            lb2=Label(window , text="\n\n\nAdded successfully", fg='red', font=("Helvetica", 10)).grid(row=10, column=0)
 
 
-            btn1=Button(window, text="proceed", fg='red')
-            btn1.place(x=40, y=230)
-            btn1.bind('<Button-1>', Insert)
-            btn1.mainloop()
-
-            window.mainloop() 
-
-
-        btn1=Button(window, text="login", fg='red')
-        btn1.place(x=40, y=100)
-        btn1.bind('<Button-1>', Myexecute)
+        btn1=Button(window, text="proceed", fg='red')
+        btn1.place(x=40, y=230)
+        btn1.bind('<Button-1>', Insert)
         btn1.mainloop()
 
-        pwd=e2.get()
+        window.mainloop() 
 
-        
 
-    
-        window.mainloop()
+    btn1=Button(window, text="login", fg='red')
+    btn1.place(x=40, y=100)
+    btn1.bind('<Button-1>', Myexecute)
+    btn1.mainloop()
+
+    window.mainloop()
                 
             
 
-    else:
-        window2= Tk()
-        window2.title('MyPasswordManager')
-        window2.geometry("300x200+10+10")
-        window2.eval('tk::PlaceWindow . center')
+def accept(arg=None):
+    window2= Tk()
+    window2.title('MyPasswordManager')
+    window2.geometry("500x400+10+10")
+    window2.eval('tk::PlaceWindow . center')
 
 
-        lb3= Label(window2, text="Enter the username to retrieve the database\n\n", fg='red').grid(row=1)
-        c4 = Entry(window2)
-        c4.grid(row=1, column=0)
+    lb3= Label(window2, text="Enter the username to retrieve the database\n\n", fg='red').grid(row=1)
+    c4 = Entry(window2)
+    c4.grid(row=1, column=0)
 
-        lb4= Label(window2, text="Password of the account\n\n", fg='red').grid(row=2)
+    lb4= Label(window2, text="Password of the account\n\n", fg='red').grid(row=2)
             
-        c5= Entry(window2 ,show="*",width=20)
+    c5= Entry(window2 ,show="*",width=20)
             
-        c5.grid(row=2, column=0)
+    c5.grid(row=2, column=0)
 
-        def convertTuple(tup):
-            str = ''.join(tup)
-            return str
+    def convertTuple(tup):
+        str = ''.join(tup)
+        return str
 
 
-        def retrieve(arg=None):
-            usname2=c4.get()
-            pwd=c5.get()
-            encMessage = fernet.encrypt(pwd.encode())
+    def retrieve(arg=None):
+        usname2=c4.get()
+        pwd=c5.get()
+        encMessage = fernet.encrypt(pwd.encode())
+        try:
             mycursor.execute("USE %s"% usname2)
+
+        except:
+            messagebox.showerror("ERROR", "Account Not Found")
                 
-            lb5= Label(window2, text="\nDatabase is being retrieved.......\n", fg='red',font=("Helvetica", 10)).grid(row=5, column=0)
+        lb5= Label(window2, text="\nDatabase is being retrieved.......\n", fg='red',font=("Helvetica", 10)).grid(row=5, column=0)
                 
             
-            mycursor.execute("SELECT root FROM passwords")
-            for x in mycursor:
-                rpd=x
-                   
-
+        mycursor.execute("SELECT root FROM passwords")
+        for x in mycursor:
+            rpd=x
             
-            str = convertTuple(rpd)
+        str = convertTuple(rpd)
                    
 
-            if pwd == str :
+        if pwd == str :
                 
-                lb6= Label(window2, text="1. Add an account   2. Retrieve the account\n", fg='red').grid(row=6)
-                c10 = Entry(window2)
-                c10.grid(row=6, column=1)
+            lb6= Label(window2, text="What Operation Are You Liking To Perform ?\n", fg='red').grid(row=6)
                     
 
-                def choice(arg=None):
-                    ch2= int(c10.get())
-                    if(ch2==1):
+            def choice1(arg=None):
                         
+                lb12= Label(window2, text="                  Enter account to be added             \n", fg='red').grid(row=7)
+                c12 = Entry(window2)
+                c12.grid(row=8, column=0)
 
-                        lb12= Label(window2, text="Enter account to be added\n", fg='red').grid(row=7)
-                        c12 = Entry(window2)
-                        c12.grid(row=7, column=1)
-
-                        lb14= Label(window2, text="Password of the account\n", fg='red').grid(row=8)
-                        c14= Entry(window2 ,show="*",width=20)
-                        c14.grid(row=8, column=1)
+                lb14= Label(window2, text="                Password of the account                 \n", fg='red').grid(row=9)
+                c14= Entry(window2 ,show="*",width=20)
+                c14.grid(row=10, column=0)
 
                             
-                        def Enter(arg=None):
-                            rootpwd2=pwd
-                            account2=c12.get()
-                            password2=c14.get()
-                            encMessage = fernet.encrypt(password2.encode())
-                            mycursor.execute("INSERT INTO passwords (root,account,passwords) VALUES (%s,%s,%s)", (rootpwd2,account2,password2))
-                            mydb.commit()
-                            lb15= Label(window2, text="Password Inserted Successfully", fg='red',font=("Helvetica", 10)).grid(row=11)
+                def Enter(arg=None):
+                    rootpwd2=pwd
+                    account2=c12.get()
+                    password2=c14.get()
+                    encMessage = fernet.encrypt(password2.encode())
+                    mycursor.execute("INSERT INTO passwords (root,account,passwords) VALUES (%s,%s,%s)", (rootpwd2,account2,password2))
+                    mydb.commit()
+                    lb15= Label(window2, text="Password Inserted Successfully", fg='red',font=("Helvetica", 10)).grid(row=11)
 
-                        btn4=Button(window2, text="Proceed", fg='red')
-                        btn4.place(x=100, y=200)
-                        btn4.bind('<Button-1>', Enter)
-                        btn4.mainloop()
-                    else:
-                        
-                        lb16= Label(window2, text="\n\nEnter the account for pssword retrieval\n", fg='red').grid(row=9)
-                        c16 = Entry(window2)
-                        c16.grid(row=9, column=1)
+                btn4=Button(window2, text="Proceed", fg='red')
+                btn4.place(x=100, y=320)
+                btn4.bind('<Button-1>', Enter)
+                btn4.mainloop()
+            
+            btn2=Button(window2 , text="Add Account", fg='red')
+            btn2.place(x=20, y=200)
+            btn2.bind('<Button-1>', choice1)
+            #btn2.mainloop()
+
+            def choice2(arg=None):  
+
+                lb16= Label(window2, text="\n\nEnter The Account Name For Password Retrieval\n", fg='red').grid(row=9)
+                c16 = Entry(window2)
+                c16.grid(row=10, column=0)
                            
 
-                        def pwdretrieval(arg=None):
-                            inpacc=c16.get()
-                            mycursor.execute("SELECT passwords FROM passwords WHERE account='%s'"% inpacc)
-                            for x in mycursor:
-                                ans= convertTuple(x)
-                            Tk().withdraw()
-                            messagebox.showerror("PASSWORD", ans)
+                def pwdretrieval(arg=None):
+                    inpacc=c16.get()
+                    try:
+                        mycursor.execute("SELECT passwords FROM passwords WHERE account='%s'"% inpacc)   
+                        for x in mycursor:
+                            ans= convertTuple(x)
+                        messagebox.showerror("PASSWORD", ans)
+                    except:
+                        messagebox.showerror("ERROR", "ACCOUNT NOT FOUND")
 
-                        btn5=Button(window2, text="Proceed", fg='red')
-                        btn5.place(x=100, y=300)
-                        btn5.bind('<Button-1>', pwdretrieval)
-                        btn5.mainloop()
+                btn5=Button(window2, text="Proceed", fg='red')
+                btn5.place(x=100, y=300)
+                btn5.bind('<Button-1>', pwdretrieval)
+                btn5.mainloop()
 
-                btn3=Button(window2, text="Proceed", fg='red')
-                btn3.place(x=100, y=200)
-                btn3.bind('<Button-1>', choice)
-                btn3.mainloop()
-            else:
-                Tk().withdraw()
-                messagebox.showerror("ERROR", "Wrong Password ")
+            btn3=Button(window2, text="Retrieve Account", fg='red')
+            btn3.place(x=130, y=200)
+            btn3.bind('<Button-1>', choice2)
+            btn3.mainloop()
 
-        btn2=Button(window2 , text="Proceed", fg='red')
-        btn2.place(x=80, y=160)
-        btn2.bind('<Button-1>', retrieve)
-        btn2.mainloop()
+        else:
+            Tk().withdraw()
+            messagebox.showerror("ERROR", "Wrong Password ")
 
+    btn2=Button(window2 , text="Proceed", fg='red')
+    btn2.place(x=80, y=160)
+    btn2.bind('<Button-1>', retrieve)
+    btn2.mainloop()
+
+btn13= Button(window,text="Retrieve Account",fg='red')
+btn13.place(x=130, y=60)
+btn13.bind('<Button-1>', accept)
         
 
 
-btn=Button(window, text="Proceed", fg='red')
-btn.place(x=80, y=90)
+btn=Button(window, text="Add Account", fg='red')
+btn.place(x=20, y=60)
 btn.bind('<Button-1>', MyButtonClicked)
 
 btn.mainloop()
