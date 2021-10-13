@@ -23,13 +23,13 @@
    <li> Type "cmd" on the Address bar. Command prompt will open</li>
     <li>Run this command which will install the package pyInstaller usually necessary to create executable programs</li></ul>
     <br>
-    pip install pyinstaller
-    <br>
+    pip install pyinstaller<br>
+    
     <ul type='circle'>
       <li>After installing, Run this command to create an executable file.</li></ul>
      <br>
-    pyinstaller --onefile -w 'filename.py'
-    <br>
+    pyinstaller --onefile -w 'filename.py'<br>
+    
     <ul type='circle'><li>The .exe file will created inside the dist folder.</li>
      <li>Move the .exe file to the main folder and you're done.</li>
        <li> You can now create as many accounts and store your credentials there. Enjoy !!!</li></ul>
