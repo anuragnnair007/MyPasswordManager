@@ -24,13 +24,13 @@
     <li>Run this command which will install the package pyInstaller usually necessary to create executable programs</li></ul>
     <br>
     
-    pip install pyinstaller
+      pip install pyinstaller
     
     <ul type='circle'>
-      <li>After installing, Run this command to create an executable file.</li></ul>
+     <li>After installing, Run this command to create an executable file.</li></ul>
      <br>
     
-    pyinstaller --onefile -w 'filename.py'
+      pyinstaller --onefile -w 'filename.py'
     
     <ul type='circle'><li>The .exe file will created inside the dist folder.</li>
      <li>Move the .exe file to the main folder and you're done.</li>
