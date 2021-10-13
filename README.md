@@ -24,8 +24,11 @@
     <li>Run this command which will install the package pyInstaller usually necessary to create executable programs</li></ul>
     
       pip install pyinstaller
-    </body>
-    <body>
+    
+    
+    
+    
+    
     <br>
     <ul type='circle'>
      <li>After installing, Run this command to create an executable file.</li></ul>
