@@ -16,19 +16,20 @@
       <li>Latest Version of Python</li>
       <li>Latest Version MySQL server</li></ul>
     
-    <li>Copy The Code</li>
+    <ul><li>Copy The Code</li>
     <li>Paste it in your VSC as a new file</li>
    <li> Run the code and check if there are any errors.</li>
     <li>If no errors are found, Open the folder where you've saved this code.</li>
    <li> Type "cmd" on the Address bar. Command prompt will open</li>
-    <li>Run this command which will install the package pyInstaller usually necessary to create executable programs</li>
+    <li>Run this command which will install the package pyInstaller usually necessary to create executable programs</li></ul>
     
     pip install pyinstaller
     
-    <li>After installing, Run this command to create an executable file.</li>
+    <ul>
+      <li>After installing, Run this command to create an executable file.</li></ul>
      
     pyinstaller --onefile -w 'filename.py'
     
-    <li>The .exe file will created inside the dist folder.</li>
+    <ul><li>The .exe file will created inside the dist folder.</li>
      <li>Move the .exe file to the main folder and you're done.</li>
        <li> You can now create as many accounts and store your credentials there. Enjoy !!!</li></ul>
