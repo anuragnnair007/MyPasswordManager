@@ -23,8 +23,7 @@
    <li> Type "cmd" on the Address bar. Command prompt will open</li>
     <li>Run this command which will install the package pyInstaller usually necessary to create executable programs</li></ul>
    
-    
-      pip install pyinstaller
+      <body>pip install pyinstaller</body>
     
     <br>
     <ul type='circle'>
