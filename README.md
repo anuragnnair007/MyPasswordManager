@@ -22,10 +22,11 @@
     <li>If no errors are found, Open the folder where you've saved this code.</li>
    <li> Type "cmd" on the Address bar. Command prompt will open</li>
     <li>Run this command which will install the package pyInstaller usually necessary to create executable programs</li></ul>
-    <br>
+   
     
       pip install pyinstaller
     
+    <br>
     <ul type='circle'>
      <li>After installing, Run this command to create an executable file.</li></ul>
      <br>
