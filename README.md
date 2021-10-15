@@ -31,4 +31,4 @@
     <ul type='circle'><li>The .exe file will created inside the dist folder.</li>
      <li>Move the .exe file to the main folder and you're done.</li>
        <li> You can now create as many accounts and store your credentials there. Enjoy !!!</li></ul><br>
-    <h2>For Further Clarifications Mail Me at anuragnnair007@gmail.com</h2>
+    <h2>For Further Clarifications Mail Me at @anuragnnair007@gmail.com</h2>
